@@ -50,9 +50,14 @@ export default function EventForm({setFormOpen,setEvents, createEvent, selectedE
                     <input type="date" placeholder="Date" value={values.date} name="date" onChange={handleInputChange}/>
                 </Form.Field>
                 <Button type="submit" floated="right" positive content="Submit"/>
-                <Button type="submit" floated="right" content="Cancel" onClick={()=>{
+                <Button 
+                type="submit"
+                 floated="right"
+                  content="Cancel" onClick={()=>{
                     setFormOpen(false)
-                }}/>
+                }}
+                    
+                />
             </Form>
         </Segment>
     )
