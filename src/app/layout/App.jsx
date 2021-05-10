@@ -8,6 +8,7 @@ import HomePage from '../../features/home/HomePage';
 import EventForm from '../../features/events/eventForm/EventForm';
 import Sandbox from '../../features/sandbox/Sandbox';
 import EventDetailedPage from '../../features/events/eventDetailed/EventDetailedPage';
+import ModalManager from './../common/modals/ModalManager'
 
 function App() {
  
@@ -15,6 +16,7 @@ function App() {
  
   return (
     <Fragment>
+     <ModalManager/>
       <Route exact path="/" component={HomePage} />
       <Route path={'/(.+)'} render={()=>(
         <>

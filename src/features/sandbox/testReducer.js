@@ -21,7 +21,7 @@ const initialState = {
     data:42
 }
 
-export default function testReducer(state = initialState,action){
+export default function testReducer(state = initialState, action){
    
     switch(action.type){
         
