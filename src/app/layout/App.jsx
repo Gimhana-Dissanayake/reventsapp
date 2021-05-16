@@ -10,6 +10,7 @@ import Sandbox from '../../features/sandbox/Sandbox';
 import EventDetailedPage from '../../features/events/eventDetailed/EventDetailedPage';
 import ModalManager from './../common/modals/ModalManager'
 import {ToastContainer} from 'react-toastify'
+import ErrorComponent from '../common/errors/ErrorComponents';
 
 function App() {
  
@@ -29,7 +30,7 @@ function App() {
         <Route exact path="/sandbox" component={Sandbox} />
         <Route path="/events/:id" component={EventDetailedPage} />
         <Route path={['/createEvent','/manage/:id']} component={EventForm} key={key}/>
-       
+       <Route path="/error" component={ErrorComponent}/>
         
       {/* <EventDashboard 
       formOpen={formOpen} 
