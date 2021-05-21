@@ -69,3 +69,24 @@ export function updateUserPassword(creds){
     const user = firebase.auth().currentUser;
     return user.updatePassword(creds.newPassword1);
 }
+
+export function getUserProfile(userId){
+    return db.collection('users').doc(userId)
+}
+
+export async function updateUserProfile(profile){
+    const user = firebase.auth().currentUser;
+    try{
+        if(user.displayName !== profile.displayName){
+            await user.updateProfile({
+                displayName: profile.displayName
+            })
+           
+        }
+
+        return await db.collection('users').doc(user.uid).update(profile)
+
+    }catch(error){
+        throw error;
+    }
+}

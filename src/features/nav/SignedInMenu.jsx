@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 export default function SignedInMenu({signOut}){
 
-    const {currentUser} = useSelector(s=>s.auth);
+    const {currentUserProfile} = useSelector(s=>s.profile);
     const history = useHistory();
 
     function handleSignOut(){
@@ -22,11 +22,11 @@ export default function SignedInMenu({signOut}){
 
     return(
         <Menu.Item position="right">
-        <Image avatar spaced="right" src={currentUser.photoURL || '/assets/user.png'}/>
-        <Dropdown pointing="top left" text={currentUser.displayName}>
+        <Image avatar spaced="right" src={currentUserProfile.photoURL || '/assets/user.png'}/>
+        <Dropdown pointing="top left" text={currentUserProfile.displayName}>
             <Dropdown.Menu>
                 <Dropdown.Item as={Link} to="/createEvent" text="Create Event" icon="plus" />
-                <Dropdown.Item text="My Profile" icon='user' />
+                <Dropdown.Item text="My Profile" icon='user' as={Link} to={`/profile/${currentUserProfile.id}`}/>
                 <Dropdown.Item text="My account" icon='settings' as={Link} to="/account"/>
                 <Dropdown.Item onClick={handleSignOut} text="Sign out" icon="power"/>
             </Dropdown.Menu>
